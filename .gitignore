@@ -3,3 +3,9 @@
 *.log
 *.pdf
 *.dvi
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+*.out
