@@ -14,12 +14,17 @@
   description={A primitive data type which represents a single unit of text}
 }
 
-\newglossaryentry{Integrated Development Environment}{
-  name={Integrated Development Environment},
-  description={
-    A piece of software that allows developers to edit, compile, debug, and execute their code.
+
+
+
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+    description={#6},#1
   }
+  \makeglossaries
+  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
 }
-\newacronym[see={[Glossary:]{Integrated Development Environment}}]{IDE}{IDE}{Integrated Development Environment\glsadd{Integrated Development Environment}}
 
 
+
+\newdualentry{IDE}{IDE}{Integrated Development Environment}{A piece of software that allows developers to edit, compile, debug, and execute their code}
