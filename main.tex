@@ -3,6 +3,19 @@
 \usepackage{hyperref}
 \usepackage{glossaries}
 
+
+\usepackage{xparse}
+
+
+
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+    description={#6},#1
+  }
+  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
+
+
 \makeglossaries
 \title{Java Fundamentals}
 \author{Alfredo Velasco II}
@@ -20,7 +33,7 @@
 
 \include{Strings/main.tex}
 
-\include{Glossary/main.tex}
+% \include{Glossary/main.tex}
 
 \setglossarystyle{altlisthypergroup}
 \printglossaries
